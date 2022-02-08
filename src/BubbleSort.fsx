@@ -1,19 +1,22 @@
 // https://en.wikipedia.org/wiki/Bubble_sort
 
 let rec bubbleSort (listToSort: 'A list) : 'A list =
-    let rec bs (listBegin:'A list) (listEnd:'A list) : 'A list =
-        match listBegin, listEnd with
-        | _, [] -> listBegin |> List.rev
-        | [], next::le -> bs [next] le
-        | first::lb, next::le ->
-            if first > next
-            then bs (first::next::lb) le
-            else bs (next::first::lb) le
-            
-    let newList = bs [] listToSort
-    if listToSort = newList
-    then newList
-    else (bubbleSort newList)
+    let rec bs (listBegin:'A list) (curr:'A) (listEnd:'A list) : 'A list =
+        match listEnd with
+        | [] -> (curr ::listBegin) |> List.rev
+        | next::le ->
+            if curr > next
+            then bs (next::listBegin) curr le
+            else bs (curr::listBegin) next le
+    
+    match listToSort with
+    | [] -> listToSort
+    | first::rest ->
+        let newList = bs [] first rest
+        
+        if listToSort <> newList
+        then (bubbleSort newList)
+        else newList
 
 /// skip last element
 let bubbleSort2 (listToSort: 'A list) : 'A list =
