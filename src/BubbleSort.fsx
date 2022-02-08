@@ -3,12 +3,12 @@
 let rec bubbleSort (listToSort: 'A list) : 'A list =
     let rec bs (listBegin:'A list) (curr:'A) (listEnd:'A list) : 'A list =
         match listEnd with
-        | [] -> (curr ::listBegin) |> List.rev
+        | [] -> (curr::listBegin) |> List.rev
         | next::le ->
-            if curr > next
-            then bs (next::listBegin) curr le
-            else bs (curr::listBegin) next le
-    
+            if curr < next
+            then bs (curr::listBegin) next le
+            else bs (next::listBegin) curr le
+            
     match listToSort with
     | [] -> listToSort
     | first::rest ->
