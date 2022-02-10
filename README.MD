@@ -10,3 +10,6 @@ Some small programming exercises to play around.
     * (Merge sort)[src/MergeSort.fsx] (wiki)[https://en.wikipedia.org/wiki/Merge_sort]
         * Declarative
         * Delcarative Async
+    * (Insertion sort)[sort/InsertionSort.fsx] (wiki)[https://en.wikipedia.org/wiki/Insertion_sort]
+        * Imutable list
+        * Mutable array

@@ -43,6 +43,11 @@ let private swap (a:int) (b:int) (array:'A array) : unit =
     array[a] <- array[b]
     array[b] <- value
 
+// let private swap (a:int) (b:int) (array:int array) : unit =
+//     array[a] <- array[a] ^^^ array[b]
+//     array[b] <- array[a] ^^^ array[b]
+//     array[a] <- array[a] ^^^ array[b]
+
 /// imperative style with mutable array
 let bubbleSort3 (listToSort:'A seq) : 'A array =
     let listToSort = listToSort |> Seq.toArray
